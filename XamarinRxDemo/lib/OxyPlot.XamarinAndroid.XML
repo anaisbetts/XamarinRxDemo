@@ -1,0 +1,474 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OxyPlot.XamarinAndroid</name>
+    </assembly>
+    <members>
+        <member name="T:OxyPlot.XamarinAndroid.CanvasRenderContext">
+            <summary>
+            Provides a render context for Android.Graphics.Canvas.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.CanvasRenderContext.imagesInUse">
+            <summary>
+            The images in use
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.CanvasRenderContext.imageCache">
+            <summary>
+            The image cache
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.CanvasRenderContext.paint">
+            <summary>
+            The current paint.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.CanvasRenderContext.path">
+            <summary>
+            A reusable path object.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.CanvasRenderContext.bounds">
+            <summary>
+            A reusable bounds rectangle.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.CanvasRenderContext.pts">
+            <summary>
+            A reusable list of points.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.CanvasRenderContext.canvas">
+            <summary>
+            The canvas to draw on.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OxyPlot.XamarinAndroid.CanvasRenderContext" /> class.
+            </summary>
+        </member>
+        <member name="P:OxyPlot.XamarinAndroid.CanvasRenderContext.Scale">
+            <summary>
+            Gets or sets the factor that scales from OxyPlot´s device independent pixels (96 dpi) to
+            Android´s density-independent pixels (160 dpi).
+            </summary>
+            <remarks>See <a href="http://developer.android.com/guide/practices/screens_support.html">Supporting multiple screens.</a>.</remarks>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.SetTarget(Android.Graphics.Canvas)">
+            <summary>
+            Sets the target.
+            </summary>
+            <param name="c">The canvas.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.DrawEllipse(OxyPlot.OxyRect,OxyPlot.OxyColor,OxyPlot.OxyColor,System.Double)">
+            <summary>
+            Draws an ellipse.
+            </summary>
+            <param name="rect">The rectangle.</param>
+            <param name="fill">The fill color.</param>
+            <param name="stroke">The stroke color.</param>
+            <param name="thickness">The thickness.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.DrawEllipses(System.Collections.Generic.IList{OxyPlot.OxyRect},OxyPlot.OxyColor,OxyPlot.OxyColor,System.Double)">
+            <summary>
+            Draws the collection of ellipses, where all have the same stroke and fill.
+            This performs better than calling DrawEllipse multiple times.
+            </summary>
+            <param name="rectangles">The rectangles.</param>
+            <param name="fill">The fill color.</param>
+            <param name="stroke">The stroke color.</param>
+            <param name="thickness">The stroke thickness.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.DrawLine(System.Collections.Generic.IList{OxyPlot.ScreenPoint},OxyPlot.OxyColor,System.Double,System.Double[],OxyPlot.OxyPenLineJoin,System.Boolean)">
+            <summary>
+            Draws a polyline.
+            </summary>
+            <param name="points">The points.</param>
+            <param name="stroke">The stroke color.</param>
+            <param name="thickness">The stroke thickness.</param>
+            <param name="dashArray">The dash array.</param>
+            <param name="lineJoin">The line join type.</param>
+            <param name="aliased">if set to <c>true</c> the shape will be aliased.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.DrawLineSegments(System.Collections.Generic.IList{OxyPlot.ScreenPoint},OxyPlot.OxyColor,System.Double,System.Double[],OxyPlot.OxyPenLineJoin,System.Boolean)">
+            <summary>
+            Draws multiple line segments defined by points (0,1) (2,3) (4,5) etc.
+            This should have better performance than calling DrawLine for each segment.
+            </summary>
+            <param name="points">The points.</param>
+            <param name="stroke">The stroke color.</param>
+            <param name="thickness">The stroke thickness.</param>
+            <param name="dashArray">The dash array.</param>
+            <param name="lineJoin">The line join type.</param>
+            <param name="aliased">If set to <c>true</c> the shape will be aliased.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.DrawPolygon(System.Collections.Generic.IList{OxyPlot.ScreenPoint},OxyPlot.OxyColor,OxyPlot.OxyColor,System.Double,System.Double[],OxyPlot.OxyPenLineJoin,System.Boolean)">
+            <summary>
+            Draws a polygon. The polygon can have stroke and/or fill.
+            </summary>
+            <param name="points">The points.</param>
+            <param name="fill">The fill color.</param>
+            <param name="stroke">The stroke color.</param>
+            <param name="thickness">The stroke thickness.</param>
+            <param name="dashArray">The dash array.</param>
+            <param name="lineJoin">The line join type.</param>
+            <param name="aliased">If set to <c>true</c> the shape will be aliased.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.DrawRectangle(OxyPlot.OxyRect,OxyPlot.OxyColor,OxyPlot.OxyColor,System.Double)">
+            <summary>
+            Draws a rectangle.
+            </summary>
+            <param name="rect">The rectangle.</param>
+            <param name="fill">The fill color.</param>
+            <param name="stroke">The stroke color.</param>
+            <param name="thickness">The stroke thickness.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.DrawText(OxyPlot.ScreenPoint,System.String,OxyPlot.OxyColor,System.String,System.Double,System.Double,System.Double,OxyPlot.HorizontalAlignment,OxyPlot.VerticalAlignment,System.Nullable{OxyPlot.OxySize})">
+            <summary>
+            Draws the text.
+            </summary>
+            <param name="p">The position of the text.</param>
+            <param name="text">The text.</param>
+            <param name="fill">The fill color.</param>
+            <param name="fontFamily">The font family.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="fontWeight">The font weight.</param>
+            <param name="rotate">The rotation angle.</param>
+            <param name="halign">The horizontal alignment.</param>
+            <param name="valign">The vertical alignment.</param>
+            <param name="maxSize">The maximum size of the text.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.MeasureText(System.String,System.String,System.Double,System.Double)">
+            <summary>
+            Measures the text.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="fontFamily">The font family.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="fontWeight">The font weight.</param>
+            <returns>The text size.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.SetClip(OxyPlot.OxyRect)">
+            <summary>
+            Sets the clip rectangle.
+            </summary>
+            <param name="rect">The clip rectangle.</param>
+            <returns>True if the clip rectangle was set.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.ResetClip">
+            <summary>
+            Resets the clip rectangle.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.DrawImage(OxyPlot.OxyImage,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Boolean)">
+            <summary>
+            Draws the specified portion of the specified <see cref="T:OxyPlot.OxyImage" /> at the specified location and with the specified size.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="srcX">The x-coordinate of the upper-left corner of the portion of the source image to draw.</param>
+            <param name="srcY">The y-coordinate of the upper-left corner of the portion of the source image to draw.</param>
+            <param name="srcWidth">Width of the portion of the source image to draw.</param>
+            <param name="srcHeight">Height of the portion of the source image to draw.</param>
+            <param name="destX">The x-coordinate of the upper-left corner of drawn image.</param>
+            <param name="destY">The y-coordinate of the upper-left corner of drawn image.</param>
+            <param name="destWidth">The width of the drawn image.</param>
+            <param name="destHeight">The height of the drawn image.</param>
+            <param name="opacity">The opacity.</param>
+            <param name="interpolate">interpolate if set to <c>true</c>.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.CleanUp">
+            <summary>
+            Cleans up resources not in use.
+            </summary>
+            <remarks>This method is called at the end of each rendering.</remarks>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.SetFill(OxyPlot.OxyColor)">
+            <summary>
+            Sets the fill style.
+            </summary>
+            <param name="fill">The fill color.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.SetStroke(OxyPlot.OxyColor,System.Double,System.Double[],OxyPlot.OxyPenLineJoin,System.Boolean)">
+            <summary>
+            Sets the stroke style.
+            </summary>
+            <param name="stroke">The stroke color.</param>
+            <param name="thickness">The stroke thickness.</param>
+            <param name="dashArray">The dash array.</param>
+            <param name="lineJoin">The line join.</param>
+            <param name="aliased">Use aliased strokes if set to <c>true</c>.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.CanvasRenderContext.GetImage(OxyPlot.OxyImage)">
+            <summary>
+            Gets the image from cache or creates a new <see cref="T:Android.Graphics.Bitmap" />.
+            </summary>
+            <param name="source">The source image.</param>
+            <returns>A <see cref="T:Android.Graphics.Bitmap" />.</returns>
+        </member>
+        <member name="T:OxyPlot.XamarinAndroid.ExtensionMethods">
+            <summary>
+            Provides extension methods that converts between Android types and OxyPlot types.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.ToColor(OxyPlot.OxyColor)">
+            <summary>
+            Converts an <see cref="T:OxyPlot.OxyColor" /> to a <see cref="T:Android.Graphics.Color" />.
+            </summary>
+            <param name="color">The color to convert.</param>
+            <returns>The converted color.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.ToRectF(OxyPlot.OxyRect)">
+            <summary>
+            Converts an <see cref="T:OxyPlot.OxyRect" /> to a <see cref="T:Android.Graphics.RectF" />.
+            </summary>
+            <param name="rect">The rectangle to convert.</param>
+            <returns>The converted rectangle.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.ToRectF(OxyPlot.OxyRect,System.Double)">
+            <summary>
+            Converts a scaled <see cref="T:OxyPlot.OxyRect" /> to a <see cref="T:Android.Graphics.RectF" />.
+            </summary>
+            <param name="rect">The rectangle to convert.</param>
+            <returns>The converted rectangle.</returns>
+            <param name="scale">The scaling factor.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.Convert(OxyPlot.OxyPenLineJoin)">
+            <summary>
+            Converts an <see cref="T:OxyPlot.OxyPenLineJoin" /> to a <see cref="T:Android.Graphics.Paint.Join" />.
+            </summary>
+            <param name="join">The join value to convert.</param>
+            <returns>The converted join value.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.ToTouchEventArgs(Android.Views.MotionEvent,System.Double)">
+            <summary>
+            Converts an <see cref="T:Android.Views.MotionEvent" /> to a <see cref="T:OxyPlot.OxyTouchEventArgs" />.
+            </summary>
+            <param name="e">The event arguments.</param>
+            <param name="scale">The resolution scale factor.</param>
+            <returns>The converted event arguments.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.GetTouchPoints(Android.Views.MotionEvent,System.Double)">
+            <summary>
+            Gets the touch points from the specified <see cref="T:Android.Views.MotionEvent" /> argument.
+            </summary>
+            <param name="e">The event arguments.</param>
+            <param name="scale">The resolution scale factor.</param>
+            <returns>The touch points.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.Convert(Android.Views.Keycode)">
+            <summary>
+            Converts an <see cref="T:Android.Views.Keycode" /> to a <see cref="T:OxyPlot.OxyKey" />.
+            </summary>
+            <param name="keyCode">The key code.</param>
+            <returns>The converted key.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.GetModifierKeys(Android.Views.KeyEvent)">
+            <summary>
+            Gets the <see cref="T:OxyPlot.OxyModifierKeys" /> from a <see cref="T:Android.Views.KeyEvent" /> .
+            </summary>
+            <param name="e">The key event arguments.</param>
+            <returns>The converted modifier keys.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.ExtensionMethods.ToKeyEventArgs(Android.Views.KeyEvent)">
+            <summary>
+            Converts an <see cref="T:Android.Views.KeyEvent" /> to a <see cref="T:OxyPlot.OxyKeyEventArgs" />.
+            </summary>
+            <param name="e">The event arguments.</param>
+            <returns>The converted event arguments.</returns>
+            <remarks>See also <a href="http://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a> reference.</remarks>
+        </member>
+        <member name="T:OxyPlot.XamarinAndroid.PlotView">
+            <summary>
+            Represents a view that can show a <see cref="T:OxyPlot.PlotModel" />.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.Scale">
+            <summary>
+            The factor that scales from OxyPlot´s device independent pixels (96 dpi) to
+            Android´s density-independent pixels (160 dpi).
+            </summary>
+            <remarks>See <a href="http://developer.android.com/guide/practices/screens_support.html">Supporting multiple screens.</a>.</remarks>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.renderingLock">
+            <summary>
+            The rendering lock object.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.invalidateLock">
+            <summary>
+            The invalidation lock object.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.previousTouchPoints">
+            <summary>
+            The touch points of the previous touch event.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.model">
+            <summary>
+            The current model.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.controller">
+            <summary>
+            The current controller.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.defaultController">
+            <summary>
+            The default controller
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.rc">
+            <summary>
+            The current render context.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.isModelInvalidated">
+            <summary>
+            The model invalidated flag.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.XamarinAndroid.PlotView.updateDataFlag">
+            <summary>
+            The update data flag.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.#ctor(Android.Content.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OxyPlot.XamarinAndroid.PlotView" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <remarks>Use this constructor when creating the view from code.</remarks>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.#ctor(Android.Content.Context,Android.Util.IAttributeSet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OxyPlot.XamarinAndroid.PlotView" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="attrs">The attribute set.</param>
+            <remarks>This constructor is called when inflating the view from XML.</remarks>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.#ctor(Android.Content.Context,Android.Util.IAttributeSet,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OxyPlot.XamarinAndroid.PlotView" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="attrs">The attribute set.</param>
+            <param name="defStyle">The definition style.</param>
+            <remarks>This constructor performs inflation from XML and applies a class-specific base style.</remarks>
+        </member>
+        <member name="P:OxyPlot.XamarinAndroid.PlotView.Model">
+            <summary>
+            Gets or sets the plot model.
+            </summary>
+            <value>The model.</value>
+        </member>
+        <member name="P:OxyPlot.XamarinAndroid.PlotView.Controller">
+            <summary>
+            Gets or sets the plot controller.
+            </summary>
+            <value>The controller.</value>
+        </member>
+        <member name="P:OxyPlot.XamarinAndroid.PlotView.ActualModel">
+            <summary>
+            Gets the actual <see cref="T:OxyPlot.PlotModel" /> of the control.
+            </summary>
+        </member>
+        <member name="P:OxyPlot.XamarinAndroid.PlotView.ActualController">
+            <summary>
+            Gets the actual <see cref="T:OxyPlot.IPlotController" /> of the control.
+            </summary>
+            <value>The actual plot controller.</value>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.HideTracker">
+            <summary>
+            Hides the tracker.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.HideZoomRectangle">
+            <summary>
+            Hides the zoom rectangle.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.InvalidatePlot(System.Boolean)">
+            <summary>
+            Invalidates the plot (not blocking the UI thread)
+            </summary>
+            <param name="updateData">if set to <c>true</c>, all data bindings will be updated.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.SetCursorType(OxyPlot.CursorType)">
+            <summary>
+            Sets the cursor type.
+            </summary>
+            <param name="cursorType">The cursor type.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.ShowTracker(OxyPlot.TrackerHitResult)">
+            <summary>
+            Shows the tracker.
+            </summary>
+            <param name="trackerHitResult">The tracker data.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.ShowZoomRectangle(OxyPlot.OxyRect)">
+            <summary>
+            Shows the zoom rectangle.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.SetClipboardText(System.String)">
+            <summary>
+            Stores text on the clipboard.
+            </summary>
+            <param name="text">The text.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.OnKeyDown(Android.Views.Keycode,Android.Views.KeyEvent)">
+            <summary>
+            Handles key down events.
+            </summary>
+            <param name="keyCode">The key code.</param>
+            <param name="e">The event arguments.</param>
+            <returns>
+                <c>true</c> if the event was handled.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.OnTouchEvent(Android.Views.MotionEvent)">
+            <summary>
+            Handles touch screen motion events.
+            </summary>
+            <param name="e">The motion event arguments.</param>
+            <returns>
+                <c>true</c> if the event was handled.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.OnDraw(Android.Graphics.Canvas)">
+            <summary>
+            Draws the content of the control.
+            </summary>
+            <param name="canvas">The canvas to draw on.</param>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.OnTouchDownEvent(Android.Views.MotionEvent)">
+            <summary>
+            Handles touch down events.
+            </summary>
+            <param name="e">The motion event arguments.</param>
+            <returns>
+                <c>true</c> if the event was handled.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.OnTouchMoveEvent(Android.Views.MotionEvent)">
+            <summary>
+            Handles touch move events.
+            </summary>
+            <param name="e">The motion event arguments.</param>
+            <returns>
+                <c>true</c> if the event was handled.</returns>
+        </member>
+        <member name="M:OxyPlot.XamarinAndroid.PlotView.OnTouchUpEvent(Android.Views.MotionEvent)">
+            <summary>
+            Handles touch released events.
+            </summary>
+            <param name="e">The motion event arguments.</param>
+            <returns>
+                <c>true</c> if the event was handled.</returns>
+        </member>
+    </members>
+</doc>
