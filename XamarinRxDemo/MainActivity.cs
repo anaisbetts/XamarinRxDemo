@@ -42,7 +42,7 @@ namespace XamarinRxDemo
             // are easier to see in smoothed graphs than in raw data.
             var smoothedPoints = listener
                 .Buffer(8, 1)
-                .Select(xs => xs.Aggregate (0.0f, (acc, x) => acc += x) / (float)xs.Count());
+                .Select(xs => xs.Average());
 
             var normalPointsSeries = new LineSeries();
             var smoothedPointsSeries = new LineSeries();
