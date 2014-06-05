@@ -17,25 +17,25 @@ using OxyPlot.Series;
 
 namespace XamarinRxDemo
 {
-    [Activity (Label = "XamarinRxDemo", MainLauncher = true)]
+    [Activity(Label = "XamarinRxDemo", MainLauncher = true)]
     public class MainActivity : Activity
     {
         int count = 1;
 
-        protected override void OnCreate (Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate (bundle);
+            base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            SetContentView (Resource.Layout.Main);
+            SetContentView(Resource.Layout.Main);
 
-            var plotView = FindViewById<PlotView> (Resource.Id.plotView);
+            var plotView = FindViewById<PlotView>(Resource.Id.plotView);
 
             var sm = SensorManager.FromContext(this);
             var sensor = sm.GetDefaultSensor(SensorType.LinearAcceleration);
 
-            var listener = new ObservableSensorListener (sm);
-            sm.RegisterListener (listener, sensor, SensorDelay.Normal);
+            var listener = new ObservableSensorListener(sm);
+            sm.RegisterListener(listener, sensor, SensorDelay.Normal);
 
             // Here, we're going to take our raw data and make a version that 
             // is a bit less erratic, by averaging the last eight points. Trends
@@ -99,19 +99,19 @@ namespace XamarinRxDemo
 
         public ObservableSensorListener(SensorManager sm)
         {
-            inner = Disposable.Create(() => sm.UnregisterListener (this));
+            inner = Disposable.Create(() => sm.UnregisterListener(this));
         }
 
         public void OnAccuracyChanged(Sensor sensor, SensorStatus accuracy) { }
 
-        public void OnSensorChanged (SensorEvent e)
+        public void OnSensorChanged(SensorEvent e)
         {
             // NB: e.Values[0] == X axis ("left / right" from the perspective
             // of looking at the phone)
             sensorEvent.OnNext(e.Values[0]);
         }
 
-        public IDisposable Subscribe (IObserver<float> observer)
+        public IDisposable Subscribe(IObserver<float> observer)
         {
             // You usually don't want to implement IObservable<T> directly, just
             // like you usually don't implement IEnumerable<T> directly, but instead
@@ -122,7 +122,7 @@ namespace XamarinRxDemo
             return sensorEvent.Subscribe(observer);
         }
 
-        public void Dispose ()
+        public void Dispose()
         {
             // Setting this to Disposable.Empty is an easy way to make sure that
             // nothing bad happens if someone double-disposes
